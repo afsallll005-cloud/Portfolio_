@@ -1,0 +1,370 @@
+/* =========================================================
+   VISION SECTION
+========================================================= */
+
+.vision-section {
+  /* position: relative; */
+
+  width: 100%;
+  min-height: 80vh;
+margin-top: -70px;
+  /* padding: 40px 48px 40px; */
+
+  /* background: #f4f3ef; */
+  color: #111;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* =========================================================
+   TOP BOX ROW
+========================================================= */
+
+.vision-box-row {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VISION BOX
+========================================================= */
+/* =========================================================
+   VISION BOX
+========================================================= */
+
+.vision-box {
+  width: 120px;
+  height: 10px;
+
+  border: 1px solid rgba(17, 17, 17, 0.35);
+
+  background: #f4f3ef;
+
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  text-align: left;
+
+  box-sizing: border-box;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   BOX TITLE
+========================================================= */
+
+.vision-box h3 {
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 600;
+  padding: 0 15px;
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+
+  text-transform: uppercase;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.vision-content {
+  width: 100%;
+
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  padding: 100px 20px 80px;
+}
+
+
+/* =========================================================
+   MAIN TEXT
+========================================================= */
+
+.vision-text {
+  width: 85%;
+  margin-top: -85px;
+
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 45px;
+
+  font-weight: 5 00;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+
+  text-align: center;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.vision-bottom {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding-top: 28px;
+
+  border-top: 1px solid rgba(17, 17, 17, 0.15);
+
+  box-sizing: border-box;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.vision-arrow {
+  font-size: 24px;
+
+  line-height: 1;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1400px) {
+
+  .vision-section {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .vision-box {
+    width: 220px;
+    height: 220px;
+  }
+
+  .vision-box h3 {
+    font-size: 19px;
+  }
+
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .vision-section {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .vision-box {
+    width: 160px;
+    height: 160px;
+  }
+
+  .vision-box h3 {
+    font-size: 15px;
+  }
+
+  .vision-content {
+    padding-top: 80px;
+  }
+
+  .vision-text {
+    font-size: clamp(
+      34px,
+      5vw,
+      62px
+    );
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .vision-section {
+    min-height: 80vh;
+
+    padding: 30px;
+  }
+
+  .vision-box {
+    width: 130px;
+    height: 130px;
+  }
+
+  .vision-box h3 {
+    font-size: 13px;
+  }
+
+  .vision-content {
+    padding: 70px 15px;
+  }
+
+  .vision-text {
+    font-size: clamp(
+      30px,
+      6vw,
+      52px
+    );
+
+    line-height: 1;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .vision-section {
+    min-height: 85vh;
+
+    padding: 22px 18px 26px;
+  }
+
+
+  /* Keep boxes on opposite sides */
+
+  .vision-box-row {
+    align-items: flex-start;
+  }
+
+
+  .vision-box {
+    width: 85px;
+    height: 85px;
+  }
+
+
+  .vision-box h3 {
+    font-size: 9px;
+
+    letter-spacing: -0.03em;
+  }
+
+
+  /* Main content */
+
+  .vision-content {
+    padding: 65px 0 55px;
+  }
+
+
+  .vision-text {
+    width: 100%;
+
+    font-size: clamp(
+      23px,
+      7vw,
+      36px
+    );
+
+    line-height: 0.98;
+
+    letter-spacing: -0.045em;
+  }
+
+
+  /* Bottom */
+
+  .vision-bottom {
+    padding-top: 20px;
+
+    font-size: 8px;
+  }
+
+
+  .vision-arrow {
+    font-size: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .vision-box {
+    width: 70px;
+    height: 70px;
+  }
+
+  .vision-box h3 {
+    font-size: 8px;
+  }
+
+  .vision-content {
+    padding-top: 50px;
+  }
+
+  .vision-text {
+    font-size: 22px;
+  }
+
+}

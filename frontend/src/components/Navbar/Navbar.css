@@ -1,0 +1,764 @@
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+
+.navbar {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100px;
+
+  padding: 28px 3.5vw 0;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  z-index: 100;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  text-decoration: none;
+
+  color: #080909;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.brand:hover {
+  opacity: 0.65;
+  transform: translateY(-1px);
+}
+
+.brand span {
+  margin: 0;
+
+  font-family: "Inter", Arial, sans-serif;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: 0.03em;
+
+  color: #334155;
+}
+
+.brand h2 {
+  margin: 0;
+
+  font-family: "Inter", Arial, sans-serif;
+
+  font-size: 24px;
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -1.3px;
+
+  color: #334155;
+}
+
+
+/* =========================================================
+   SOCIAL ICONS
+   IMPORTANT:
+   Moved to the right so they don't overlap the hair/photo.
+========================================================= */
+
+.navbar-socials {
+  position: absolute;
+
+  top: 22px;
+
+  right: 115px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  z-index: 110;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   SOCIAL LINK
+========================================================= */
+
+.social-link {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #111111;
+
+  text-decoration: none;
+
+  border-radius: 50%;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-3px) scale(1.06);
+
+  opacity: 0.65;
+
+  background: rgba(15, 23, 42, 0.04);
+}
+
+
+/* =========================================================
+   SVG ICON
+========================================================= */
+
+.social-link svg {
+  display: block;
+
+  width: 28px;
+  height: 28px;
+
+  fill: currentColor;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.social-link:hover svg {
+  transform: scale(1.05);
+}
+
+
+/* =========================================================
+   INSTAGRAM
+========================================================= */
+
+.social-link:nth-child(3) svg {
+  fill: none;
+}
+
+.social-link:nth-child(3) svg circle:last-child {
+  fill: currentColor;
+}
+
+
+/* =========================================================
+   HAMBURGER
+========================================================= */
+
+.menu-button {
+  width: 42px;
+  height: 38px;
+
+  margin: 0;
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: flex-end;
+
+  gap: 7px;
+
+  cursor: pointer;
+
+  z-index: 120;
+
+  appearance: none;
+}
+
+.menu-button span {
+  display: block;
+
+  width: 35px;
+  height: 3px;
+
+  background: #111111;
+
+  border-radius: 0;
+
+  transition:
+    width 0.3s ease,
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.menu-button span:last-child {
+  width: 27px;
+}
+
+
+/* =========================================================
+   HAMBURGER HOVER
+========================================================= */
+
+.menu-button:hover span:first-child {
+  width: 29px;
+}
+
+.menu-button:hover span:last-child {
+  width: 35px;
+}
+
+
+/* =========================================================
+   ACTIVE HAMBURGER
+========================================================= */
+
+.menu-button.active {
+  gap: 0;
+}
+
+.menu-button.active span:first-child {
+  width: 35px;
+
+  transform:
+    translateY(1.5px)
+    rotate(45deg);
+}
+
+.menu-button.active span:last-child {
+  width: 35px;
+
+  transform:
+    translateY(-1.5px)
+    rotate(-45deg);
+}
+
+
+/* =========================================================
+   FULLSCREEN MENU
+========================================================= */
+
+.fullscreen-menu {
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background: #111111;
+
+  color: #ffffff;
+
+  z-index: 1000;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-20px);
+
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease,
+    transform 0.4s ease;
+}
+
+.fullscreen-menu.show {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   FULLSCREEN NAV
+========================================================= */
+
+.fullscreen-menu nav {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.fullscreen-menu nav a {
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-family: "Inter", Arial, sans-serif;
+
+  font-size: clamp(48px, 7vw, 110px);
+
+  font-weight: 800;
+
+  line-height: 0.9;
+
+  letter-spacing: -5px;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.fullscreen-menu nav a:hover {
+  opacity: 0.45;
+
+  transform: translateX(20px);
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.close-menu {
+  position: absolute;
+
+  top: 23px;
+  right: 3.5vw;
+
+  width: 55px;
+  height: 55px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 52px;
+
+  font-weight: 200;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.close-menu:hover {
+  transform: rotate(90deg);
+
+  opacity: 0.6;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1440px) {
+
+  .navbar {
+    height: 110px;
+
+    padding-top: 30px;
+
+    padding-left: 3.5vw;
+    padding-right: 3.5vw;
+  }
+
+  .brand span {
+    font-size: 12px;
+  }
+
+  .brand h2 {
+    font-size: 25px;
+  }
+
+
+  /* Social icons */
+
+  .navbar-socials {
+    top: 25px;
+
+    right: 115px;
+
+    gap: 20px;
+  }
+
+  .social-link {
+    width: 46px;
+    height: 46px;
+  }
+
+  .social-link svg {
+    width: 31px;
+    height: 31px;
+  }
+
+
+  /* Menu */
+
+  .menu-button {
+    width: 44px;
+    height: 40px;
+  }
+
+  .menu-button span {
+    width: 36px;
+  }
+
+  .menu-button span:last-child {
+    width: 27px;
+  }
+}
+
+
+/* =========================================================
+   1200 - 1439
+========================================================= */
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+
+  .navbar-socials {
+    right: 105px;
+
+    gap: 15px;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-link svg {
+    width: 27px;
+    height: 27px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .navbar {
+    height: 95px;
+
+    padding: 25px 30px 0;
+  }
+
+
+  .brand h2 {
+    font-size: 21px;
+  }
+
+
+  /* Social icons stay away from center photo */
+
+  .navbar-socials {
+    top: 22px;
+
+    right: 90px;
+
+    gap: 10px;
+  }
+
+  .social-link {
+    width: 38px;
+    height: 38px;
+  }
+
+  .social-link svg {
+    width: 25px;
+    height: 25px;
+  }
+
+
+  /* Menu */
+
+  .menu-button {
+    width: 40px;
+  }
+
+  .menu-button span {
+    width: 32px;
+  }
+
+  .menu-button span:last-child {
+    width: 24px;
+  }
+
+  .menu-button.active span:first-child,
+  .menu-button.active span:last-child {
+    width: 32px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .navbar {
+    height: 85px;
+
+    padding: 22px 20px 0;
+  }
+
+
+  /* =======================================================
+     BRAND
+  ======================================================= */
+
+  .brand {
+    gap: 4px;
+  }
+
+  .brand span {
+    font-size: 9px;
+  }
+
+  .brand h2 {
+    font-size: 17px;
+
+    letter-spacing: -0.8px;
+  }
+
+
+  /* =======================================================
+     SOCIAL ICONS
+     Move further right on mobile
+  ======================================================= */
+
+  .navbar-socials {
+    top: 18px;
+
+    right: 65px;
+
+    gap: 5px;
+  }
+
+  .social-link {
+    width: 31px;
+    height: 31px;
+  }
+
+  .social-link svg {
+    width: 21px;
+    height: 21px;
+  }
+
+
+  /* =======================================================
+     HAMBURGER
+  ======================================================= */
+
+  .menu-button {
+    width: 34px;
+    height: 32px;
+
+    gap: 6px;
+  }
+
+  .menu-button span {
+    width: 28px;
+    height: 2.5px;
+  }
+
+  .menu-button span:last-child {
+    width: 21px;
+  }
+
+  .menu-button.active span:first-child,
+  .menu-button.active span:last-child {
+    width: 28px;
+  }
+
+
+  /* =======================================================
+     FULLSCREEN MENU
+  ======================================================= */
+
+  .fullscreen-menu nav {
+    gap: 10px;
+  }
+
+  .fullscreen-menu nav a {
+    font-size: 48px;
+
+    letter-spacing: -3px;
+  }
+
+
+  /* =======================================================
+     CLOSE
+  ======================================================= */
+
+  .close-menu {
+    top: 18px;
+
+    right: 17px;
+
+    font-size: 45px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .navbar {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+  .brand h2 {
+    font-size: 15px;
+  }
+
+  .brand span {
+    font-size: 8px;
+  }
+
+
+  /* Social */
+
+  .navbar-socials {
+    right: 55px;
+
+    gap: 2px;
+  }
+
+  .social-link {
+    width: 28px;
+    height: 28px;
+  }
+
+  .social-link svg {
+    width: 19px;
+    height: 19px;
+  }
+
+
+  /* Menu */
+
+  .menu-button {
+    width: 31px;
+  }
+
+  .menu-button span {
+    width: 26px;
+  }
+
+  .menu-button span:last-child {
+    width: 19px;
+  }
+
+  .menu-button.active span:first-child,
+  .menu-button.active span:last-child {
+    width: 26px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .navbar {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .brand h2 {
+    font-size: 14px;
+  }
+
+  .brand span {
+    font-size: 7px;
+  }
+
+
+  .navbar-socials {
+    right: 50px;
+
+    gap: 0;
+  }
+
+  .social-link {
+    width: 26px;
+    height: 26px;
+  }
+
+  .social-link svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .brand,
+  .social-link,
+  .social-link svg,
+  .menu-button span,
+  .fullscreen-menu,
+  .fullscreen-menu nav a,
+  .close-menu {
+    transition: none;
+  }
+}
