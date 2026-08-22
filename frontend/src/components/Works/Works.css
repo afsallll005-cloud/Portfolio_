@@ -1,65 +1,104 @@
 /* =========================================================
    WORKS SECTION
 ========================================================= */
+
 .works-section {
   position: relative;
+  z-index: 0;
+
   width: 100%;
-  min-height: 420vh;
+  min-height: 100vh;
+
   background: #f5f4ef;
   color: #111;
+
   overflow: clip;
 }
+
 
 /* =========================================================
    FIXED BACKGROUND WORD
 ========================================================= */
+
 .works-fixed-text {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  width: 100%;
   height: 100vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+
+  z-index: -1;
+
   pointer-events: none;
   overflow: hidden;
+
+  padding-bottom: 100px;
 }
+
 
 .works-fixed-word {
   width: max-content;
+
   font-family: Arial, Helvetica, sans-serif;
+
   font-size: clamp(180px, 29vw, 620px);
+
   font-weight: 800;
+
   line-height: 0.75;
+
   letter-spacing: -0.095em;
+
   white-space: nowrap;
+
   color: #111;
+
   user-select: none;
+
   transform: translateX(-1.5vw);
 }
 
+
 /* =========================================================
-   PROJECT SCROLL LAYER
+   PROJECT SCROLL
 ========================================================= */
+
 .works-scroll {
   position: relative;
+
   z-index: 10;
+
   width: 100%;
+
+  margin-top: -100vh;
+
   padding-top: 70vh;
   padding-bottom: 90vh;
 }
 
+
 /* =========================================================
-   PROJECT CARD (compact, floating)
+   PROJECT
 ========================================================= */
+
 .works-project {
   position: relative;
-  width: min(300px, 60vw);
-  margin-bottom: 55vh;
+
+  width: 695px;
+
+  margin-bottom: 40vh;
 }
 
-/* alternate horizontal placement so cards float loosely over the word */
+
+/* =========================================================
+   ALTERNATE PROJECT POSITION
+========================================================= */
+
 .works-project:nth-child(odd) {
   margin-left: 8vw;
 }
@@ -73,138 +112,704 @@
   margin-bottom: 20vh;
 }
 
+
 /* =========================================================
-   CARD HEADER — title + tag row
+   PROJECT CARD
 ========================================================= */
+
 .works-project-card {
+  position: relative;
+
   display: block;
-  color: #111;
+
+  width: 100%;
+
+  color: inherit;
+
   text-decoration: none;
+
+  cursor: pointer;
 }
 
-.works-project-header {
-  margin-bottom: 10px;
+
+/* =========================================================
+   PROJECT IMAGE
+========================================================= */
+
+.works-project-image {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  background: #111;
+
+  border-radius: 4px;
+
+  isolation: isolate;
 }
 
-.works-project-title {
-  margin: 0 0 6px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.works-project-tags {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.works-project-tag {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: #555;
-  text-transform: uppercase;
-}
-
-.works-project-tag::before {
-  content: "";
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #999;
-  flex-shrink: 0;
-}
 
 /* =========================================================
    IMAGE
 ========================================================= */
-.works-project-image {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  background: #ddd;
-  border-radius: 2px;
-}
 
 .works-project-image img {
+  position: absolute;
+
+  inset: 0;
+
   width: 100%;
   height: 100%;
+
   display: block;
+
   object-fit: cover;
+
   transform: scale(1);
-  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transition:
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.works-project-card:hover .works-project-image img {
-  transform: scale(1.05);
+
+/* =========================================================
+   IMAGE ZOOM
+========================================================= */
+
+.works-project-card:hover
+.works-project-image img {
+  transform: scale(1.07);
 }
 
-/* subtle hover affordance, no full overlay */
+
+/* =========================================================
+   DARK HOVER OVERLAY
+========================================================= */
+
+.works-project-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.58) 0%,
+      rgba(0, 0, 0, 0.08) 45%,
+      rgba(0, 0, 0, 0.68) 100%
+    );
+
+  opacity: 0;
+
+  transition:
+    opacity 0.45s ease;
+
+  pointer-events: none;
+}
+
+
+.works-project-card:hover
+.works-project-image::after {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   HOVER CONTENT
+========================================================= */
+
+.works-hover-content {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 4;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  padding: 28px 30px;
+
+  color: #fff;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.35s ease;
+
+  pointer-events: none;
+}
+
+
+.works-project-card:hover
+.works-hover-content {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   TOP CONTENT
+========================================================= */
+
+.works-hover-top {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  width: 100%;
+
+  gap: 30px;
+
+  transform: translateY(-18px);
+
+  transition:
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.works-project-card:hover
+.works-hover-top {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   PROJECT NUMBER
+========================================================= */
+
+.works-project-number {
+  display: block;
+
+  flex-shrink: 0;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   PROJECT TAGS
+========================================================= */
+
+.works-project-tags {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 18px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   TAG
+========================================================= */
+
+.works-project-tag {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TAG DOT
+========================================================= */
+
+.works-project-tag::before {
+  content: "";
+
+  width: 4px;
+  height: 4px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.7);
+}
+
+
+/* =========================================================
+   BOTTOM CONTENT
+========================================================= */
+
+.works-hover-bottom {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  width: 100%;
+
+  transform: translateY(25px);
+
+  transition:
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.works-project-card:hover
+.works-hover-bottom {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   PROJECT TITLE
+========================================================= */
+
+.works-project-title {
+  margin: 0;
+
+  padding: 0;
+
+  color: #fff;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: clamp(42px, 5vw, 68px);
+
+  font-weight: 700;
+
+  line-height: 0.88;
+
+  letter-spacing: -0.055em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   CENTER ARROW
+========================================================= */
+
 .works-project-hover {
   position: absolute;
-  top: 8px;
-  right: 8px;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 6;
+
+  width: 80px;
+  height: 80px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  color: #111;
-  font-size: 12px;
+
+  background: #000000;
+
+  color: #000000;
+
   opacity: 0;
-  transform: translateY(-4px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.65);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  pointer-events: none;
 }
 
-.works-project-card:hover .works-project-hover {
+
+/* =========================================================
+   SHOW ARROW
+========================================================= */
+
+.works-project-card:hover
+.works-project-hover {
   opacity: 1;
-  transform: translateY(0);
+
+  transform:
+    translate(-50%, -50%)
+    scale(1);
 }
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.works-project-hover span {
+  display: block;
+
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 39px;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  transform: translate(0, 0);
+
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.works-project-card:hover
+.works-project-hover span {
+  transform: translate(5px, -5px);
+}
+
+
+/* =========================================================
+   SUBTLE CARD SHADOW
+========================================================= */
+
+.works-project-card:hover
+.works-project-image {
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  .works-fixed-word {
+    font-size: 32vw;
+  }
+
+
+  .works-project {
+    width: 600px;
+  }
+
+
+  .works-project:nth-child(odd) {
+    margin-left: 5vw;
+  }
+
+
+  .works-project:nth-child(even) {
+    margin-right: 5vw;
+  }
+
+
+  .works-hover-content {
+    padding: 24px;
+  }
+
+
+  .works-project-title {
+    font-size: 48px;
+  }
+
+
+  .works-project-hover {
+    width: 70px;
+    height: 70px;
+  }
+
+
+  .works-project-hover span {
+    font-size: 27px;
+  }
+}
+
 
 /* =========================================================
    MOBILE
 ========================================================= */
+
 @media (max-width: 768px) {
+
   .works-section {
     min-height: 360vh;
   }
 
+
+  /* FIXED WORD */
+
+  .works-fixed-text {
+    height: 100vh;
+
+    padding-bottom: 50px;
+  }
+
+
   .works-fixed-word {
     font-size: 41vw;
+
     letter-spacing: -0.1em;
+
     transform: translateX(-2vw);
   }
 
+
+  /* PROJECT SCROLL */
+
   .works-scroll {
     padding-top: 60vh;
+
     padding-left: 20px;
     padding-right: 20px;
   }
 
+
+  /* PROJECT */
+
   .works-project {
     width: 100%;
+
     margin-bottom: 40vh;
   }
+
 
   .works-project:nth-child(odd),
   .works-project:nth-child(even) {
     margin-left: 0;
+
     margin-right: 0;
   }
 
-  .works-project-title {
-    font-size: 10px;
+
+  /* IMAGE */
+
+  .works-project-image {
+    aspect-ratio: 16 / 11;
+
+    border-radius: 3px;
   }
 
-  .works-project-tag {
+
+  /* HOVER CONTENT */
+
+  .works-hover-content {
+    padding: 18px 20px;
+  }
+
+
+  /* TOP */
+
+  .works-hover-top {
+    gap: 15px;
+  }
+
+
+  /* NUMBER */
+
+  .works-project-number {
     font-size: 8px;
+  }
+
+
+  /* TAGS */
+
+  .works-project-tags {
+    gap: 8px;
+  }
+
+
+  .works-project-tag {
+    font-size: 7px;
+
+    letter-spacing: 0.06em;
+  }
+
+
+  .works-project-tag::before {
+    width: 3px;
+    height: 3px;
+  }
+
+
+  /* TITLE */
+
+  .works-project-title {
+    font-size: 34px;
+
+    letter-spacing: -0.045em;
+  }
+
+
+  /* ARROW */
+
+  .works-project-hover {
+    width: 60px;
+    height: 60px;
+  }
+
+
+  .works-project-hover span {
+    font-size: 24px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .works-scroll {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+
+  .works-project {
+    margin-bottom: 35vh;
+  }
+
+
+  .works-project-image {
+    aspect-ratio: 4 / 3;
+  }
+
+
+  .works-hover-content {
+    padding: 14px 15px;
+  }
+
+
+  .works-hover-top {
+    gap: 8px;
+  }
+
+
+  .works-project-number {
+    font-size: 7px;
+  }
+
+
+  .works-project-tags {
+    gap: 6px;
+  }
+
+
+  .works-project-tag {
+    font-size: 6px;
+
+    gap: 5px;
+  }
+
+
+  .works-project-tag::before {
+    width: 3px;
+    height: 3px;
+  }
+
+
+  .works-project-title {
+    font-size: 27px;
+
+    letter-spacing: -0.04em;
+  }
+
+
+  .works-project-hover {
+    width: 54px;
+    height: 54px;
+  }
+
+
+  .works-project-hover span {
+    font-size: 21px;
+  }
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .works-project-title {
+    font-size: 23px;
+  }
+
+
+  .works-project-tag {
+    font-size: 5.5px;
+  }
+
+
+  .works-project-hover {
+    width: 48px;
+    height: 48px;
+  }
+
+
+  .works-project-hover span {
+    font-size: 19px;
+  }
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .works-project-image img,
+  .works-project-image::after,
+  .works-hover-content,
+  .works-hover-top,
+  .works-hover-bottom,
+  .works-project-hover,
+  .works-project-hover span {
+    transition: none;
   }
 }

@@ -12,6 +12,7 @@ import Footer from "@/components/Footer/Footer";
 import IntroTxt from "@/components/IntroTxt/IntroText";
 import VisionSection from "@/components/VisionSection/VisionSection";
 import Works from "@/components/Works/Works";
+import Services from "@/components/Services/Services";
 
 export default function Home() {
   return (
@@ -23,9 +24,10 @@ export default function Home() {
       <VisionSection />
       <About />
       <Works />
-      <Projects />
+      <Services/>
+      {/* <Projects /> */}
       {/* <Experience /> */}
-      <Contact />
+      {/* <Contact /> */}
       <Footer />
 
     </main>
