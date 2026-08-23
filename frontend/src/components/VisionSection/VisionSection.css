@@ -3,18 +3,13 @@
 ========================================================= */
 
 .vision-section {
-  /* position: relative; */
-
   width: 100%;
   min-height: 80vh;
-margin-top: -70px;
-  /* padding: 40px 48px 40px; */
+  margin-top: -70px;
 
-  /* background: #f4f3ef; */
   color: #111;
 
   box-sizing: border-box;
-
   overflow: hidden;
 
   display: flex;
@@ -38,13 +33,31 @@ margin-top: -70px;
 
 
 /* =========================================================
-   VISION BOX
-========================================================= */
-/* =========================================================
-   VISION BOX
+   LEFT BOX
 ========================================================= */
 
-.vision-box {
+.vision-left-box {
+  width: 120px;
+  height: 10px;
+
+  border: none;
+  background: transparent;
+font-size: 120px;
+  display: flex;
+  align-items: center;
+
+  text-align: left;
+
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   RIGHT BOX
+========================================================= */
+
+.vision-right-box {
   width: 120px;
   height: 10px;
 
@@ -54,27 +67,50 @@ margin-top: -70px;
 
   display: flex;
   align-items: center;
-  /* justify-content: center; */
+
   text-align: left;
 
   box-sizing: border-box;
-
   flex-shrink: 0;
 }
 
 
 /* =========================================================
-   BOX TITLE
+   LEFT BOX TITLE
 ========================================================= */
 
-.vision-box h3 {
+.vision-left-box h3 {
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 50px;
+  font-weight: 500;
+
+  padding: 0 15px;
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+
+  text-transform: uppercase;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   RIGHT BOX TITLE
+========================================================= */
+
+.vision-right-box h3 {
   margin: 0;
 
   font-family: Arial, Helvetica, sans-serif;
 
   font-size: 10px;
+  font-weight: 500;
 
-  font-weight: 600;
   padding: 0 15px;
 
   line-height: 1;
@@ -97,9 +133,7 @@ margin-top: -70px;
   flex: 1;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
   box-sizing: border-box;
@@ -114,14 +148,14 @@ margin-top: -70px;
 
 .vision-text {
   width: 85%;
-  margin-top: -85px;
 
+  margin-top: -85px;
 
   font-family: Arial, Helvetica, sans-serif;
 
-  font-size: 45px;
+  font-size: 42px;
 
-  font-weight: 5 00;
+  font-weight: 500;
 
   line-height: 0.98;
 
@@ -143,7 +177,6 @@ margin-top: -70px;
   display: flex;
 
   align-items: center;
-
   justify-content: space-between;
 
   padding-top: 28px;
@@ -188,12 +221,17 @@ margin-top: -70px;
     padding-right: 60px;
   }
 
-  .vision-box {
+  .vision-left-box,
+  .vision-right-box {
     width: 220px;
     height: 220px;
   }
 
-  .vision-box h3 {
+  .vision-left-box h3 {
+    font-size: 19px;
+  }
+
+  .vision-right-box h3 {
     font-size: 19px;
   }
 
@@ -211,12 +249,14 @@ margin-top: -70px;
     padding-right: 35px;
   }
 
-  .vision-box {
+  .vision-left-box,
+  .vision-right-box {
     width: 160px;
     height: 160px;
   }
 
-  .vision-box h3 {
+  .vision-left-box h3,
+  .vision-right-box h3 {
     font-size: 15px;
   }
 
@@ -247,12 +287,14 @@ margin-top: -70px;
     padding: 30px;
   }
 
-  .vision-box {
+  .vision-left-box,
+  .vision-right-box {
     width: 130px;
     height: 130px;
   }
 
-  .vision-box h3 {
+  .vision-left-box h3,
+  .vision-right-box h3 {
     font-size: 13px;
   }
 
@@ -293,13 +335,27 @@ margin-top: -70px;
   }
 
 
-  .vision-box {
+  /* LEFT BOX */
+
+  .vision-left-box {
+    width: 85px;
+    height: 85px;
+
+    border: none;
+    background: transparent;
+  }
+
+
+  /* RIGHT BOX */
+
+  .vision-right-box {
     width: 85px;
     height: 85px;
   }
 
 
-  .vision-box h3 {
+  .vision-left-box h3,
+  .vision-right-box h3 {
     font-size: 9px;
 
     letter-spacing: -0.03em;
@@ -350,18 +406,23 @@ margin-top: -70px;
 
 @media (max-width: 400px) {
 
-  .vision-box {
+  .vision-left-box,
+  .vision-right-box {
     width: 70px;
     height: 70px;
   }
 
-  .vision-box h3 {
+
+  .vision-left-box h3,
+  .vision-right-box h3 {
     font-size: 8px;
   }
+
 
   .vision-content {
     padding-top: 50px;
   }
+
 
   .vision-text {
     font-size: 22px;

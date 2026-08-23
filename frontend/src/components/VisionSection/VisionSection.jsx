@@ -12,13 +12,18 @@ export default function VisionSection() {
       <div className="vision-box-row">
 
         {/* LEFT BOX */}
-        <div className="vision-box">
-          <h3> I AM DEDICATED TO BRINGING YOUR VISION  I AM DEDICATED TO BRINGING YOUR VISION</h3>
+        <div className="vision-left-box">
+          <h3>
+            I AM DEDICATED TO BRINGING YOUR VISIONO BRINGING YOUR VISION
+          </h3>
         </div>
 
         {/* RIGHT BOX */}
-        <div className="vision-box">
-          <h3> I AM DEDICATED TO BRINGING YOUR VISION  I AM DEDICATED TO BRINGING YOUR VISION</h3>
+        <div className="vision-right-box">
+          <h3>
+            I AM DEDICATED TO BRINGING YOUR VISION
+            I AM DEDICATED TO BRINGING YOUR VISION
+          </h3>
         </div>
 
       </div>
@@ -42,12 +47,6 @@ export default function VisionSection() {
         </p>
 
       </div>
-
-
-      {/* =====================================================
-          BOTTOM
-      ====================================================== */}
-      
 
     </section>
   );
