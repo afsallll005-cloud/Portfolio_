@@ -4,8 +4,6 @@
 
 .works-section {
   position: relative;
-  z-index: 0;
-
   width: 100%;
   min-height: 100vh;
 
@@ -17,13 +15,12 @@
 
 
 /* =========================================================
-   FIXED BACKGROUND WORD
+   BIG BACKGROUND "WORKS"
 ========================================================= */
 
 .works-fixed-text {
   position: sticky;
   top: 0;
-  left: 0;
 
   width: 100%;
   height: 100vh;
@@ -32,21 +29,23 @@
   align-items: center;
   justify-content: center;
 
-  z-index: -1;
-
   pointer-events: none;
   overflow: hidden;
 
-  padding-bottom: 100px;
+  z-index: 0;
 }
 
 
 .works-fixed-word {
   width: max-content;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: clamp(180px, 29vw, 620px);
+  font-size:
+    clamp(180px, 29vw, 620px);
 
   font-weight: 800;
 
@@ -71,14 +70,13 @@
 .works-scroll {
   position: relative;
 
-  z-index: 10;
-
   width: 100%;
 
   margin-top: -100vh;
 
   padding-top: 70vh;
-  padding-bottom: 90vh;
+
+  z-index: 5;
 }
 
 
@@ -96,25 +94,29 @@
 
 
 /* =========================================================
-   ALTERNATE PROJECT POSITION
+   ALTERNATING PROJECT POSITION
 ========================================================= */
 
 .works-project:nth-child(odd) {
   margin-left: 8vw;
 }
 
+
 .works-project:nth-child(even) {
   margin-left: auto;
   margin-right: 10vw;
 }
 
-.works-project:last-child {
-  margin-bottom: 20vh;
+
+/* LAST PROJECT */
+
+.works-project:nth-child(4) {
+  margin-bottom: 15vh;
 }
 
 
 /* =========================================================
-   PROJECT CARD
+   PROJECT LINK
 ========================================================= */
 
 .works-project-card {
@@ -147,7 +149,7 @@
 
   background: #111;
 
-  border-radius: 4px;
+  border-radius: 3px;
 
   isolation: isolate;
 }
@@ -176,9 +178,7 @@
 }
 
 
-/* =========================================================
-   IMAGE ZOOM
-========================================================= */
+/* IMAGE ZOOM */
 
 .works-project-card:hover
 .works-project-image img {
@@ -187,7 +187,7 @@
 
 
 /* =========================================================
-   DARK HOVER OVERLAY
+   IMAGE DARK OVERLAY
 ========================================================= */
 
 .works-project-image::after {
@@ -204,15 +204,15 @@
       to bottom,
       rgba(0, 0, 0, 0.58) 0%,
       rgba(0, 0, 0, 0.08) 45%,
-      rgba(0, 0, 0, 0.68) 100%
+      rgba(0, 0, 0, 0.7) 100%
     );
 
   opacity: 0;
 
+  pointer-events: none;
+
   transition:
     opacity 0.45s ease;
-
-  pointer-events: none;
 }
 
 
@@ -245,10 +245,10 @@
 
   opacity: 0;
 
+  pointer-events: none;
+
   transition:
     opacity 0.35s ease;
-
-  pointer-events: none;
 }
 
 
@@ -259,7 +259,7 @@
 
 
 /* =========================================================
-   TOP CONTENT
+   HOVER TOP
 ========================================================= */
 
 .works-hover-top {
@@ -291,13 +291,15 @@
 ========================================================= */
 
 .works-project-number {
-  display: block;
-
   flex-shrink: 0;
 
-  color: rgba(255, 255, 255, 0.65);
+  color:
+    rgba(255, 255, 255, 0.65);
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 11px;
 
@@ -310,25 +312,21 @@
 
 
 /* =========================================================
-   PROJECT TAGS
+   TAGS
 ========================================================= */
 
 .works-project-tags {
   display: flex;
 
-  align-items: center;
-
   justify-content: flex-end;
+
+  align-items: center;
 
   gap: 18px;
 
   flex-wrap: wrap;
 }
 
-
-/* =========================================================
-   TAG
-========================================================= */
 
 .works-project-tag {
   display: inline-flex;
@@ -337,9 +335,13 @@
 
   gap: 7px;
 
-  color: rgba(255, 255, 255, 0.85);
+  color:
+    rgba(255, 255, 255, 0.85);
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 9px;
 
@@ -355,10 +357,6 @@
 }
 
 
-/* =========================================================
-   TAG DOT
-========================================================= */
-
 .works-project-tag::before {
   content: "";
 
@@ -369,12 +367,13 @@
 
   border-radius: 50%;
 
-  background: rgba(255, 255, 255, 0.7);
+  background:
+    rgba(255, 255, 255, 0.7);
 }
 
 
 /* =========================================================
-   BOTTOM CONTENT
+   HOVER BOTTOM
 ========================================================= */
 
 .works-hover-bottom {
@@ -405,14 +404,17 @@
 
 .works-project-title {
   margin: 0;
-
   padding: 0;
 
   color: #fff;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-  font-size: clamp(42px, 5vw, 68px);
+  font-size:
+    clamp(42px, 5vw, 68px);
 
   font-weight: 700;
 
@@ -434,20 +436,21 @@
   top: 50%;
   left: 50%;
 
-  z-index: 6;
+  z-index: 7;
 
   width: 80px;
   height: 80px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   border-radius: 50%;
 
-  background: #000000;
+  background: #000;
 
-  color: #000000;
+  color: #fff;
 
   opacity: 0;
 
@@ -455,17 +458,13 @@
     translate(-50%, -50%)
     scale(0.65);
 
+  pointer-events: none;
+
   transition:
     opacity 0.3s ease,
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-
-  pointer-events: none;
 }
 
-
-/* =========================================================
-   SHOW ARROW
-========================================================= */
 
 .works-project-card:hover
 .works-project-hover {
@@ -484,9 +483,12 @@
 .works-project-hover span {
   display: block;
 
-  color: #ffffff;
+  color: #fff;
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
   font-size: 39px;
 
@@ -494,21 +496,20 @@
 
   line-height: 1;
 
-  transform: translate(0, 0);
-
   transition:
-    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.35s ease;
 }
 
 
 .works-project-card:hover
 .works-project-hover span {
-  transform: translate(5px, -5px);
+  transform:
+    translate(5px, -5px);
 }
 
 
 /* =========================================================
-   SUBTLE CARD SHADOW
+   CARD SHADOW
 ========================================================= */
 
 .works-project-card:hover
@@ -519,13 +520,523 @@
 
 
 /* =========================================================
+   =========================================================
+   MORE WORKS
+   =========================================================
+========================================================= */
+
+.works-recognition {
+  position: relative;
+
+  width: 100%;
+
+  margin: 0;
+
+  padding:
+    110px 0 140px;
+
+  background: #000;
+
+  color: #fff;
+
+  z-index: 30;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.works-recognition-container {
+  width: 100%;
+
+  max-width: 1800px;
+
+  margin: 0 auto;
+
+  padding:
+    0 54px;
+}
+
+
+/* =========================================================
+   MORE WORKS HEADING
+========================================================= */
+
+.works-recognition-heading {
+  margin-bottom:
+    80px;
+}
+
+
+.works-recognition-heading span {
+  display: inline-block;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255, 255, 255, 0.7);
+}
+
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.works-recognition-header {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    2fr
+    100px;
+
+  align-items: center;
+
+  width: 100%;
+
+  height: 50px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.2);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255, 255, 255, 0.42);
+}
+
+
+.works-recognition-header div:last-child {
+  text-align: right;
+}
+
+
+/* =========================================================
+   LIST
+========================================================= */
+
+.works-recognition-list {
+  position: relative;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   WORK ROW
+========================================================= */
+
+.works-recognition-row {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    2fr
+    100px;
+
+  align-items: center;
+
+  width: 100%;
+
+  min-height: 94px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.13);
+
+  color: #fff;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease;
+}
+
+
+/* =========================================================
+   PROJECT NAME
+========================================================= */
+
+.works-recognition-project {
+  position: relative;
+
+  z-index: 2;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 400;
+
+  line-height: 1.2;
+
+  transition:
+    transform 0.35s ease;
+}
+
+
+/* =========================================================
+   PROJECT TYPE
+========================================================= */
+
+.works-recognition-type {
+  position: relative;
+
+  z-index: 2;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 400;
+
+  line-height: 1.4;
+
+  color:
+    rgba(255, 255, 255, 0.88);
+
+  transition:
+    transform 0.35s ease;
+}
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+.works-recognition-year {
+  position: relative;
+
+  z-index: 2;
+
+  text-align: right;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  color:
+    rgba(255, 255, 255, 0.65);
+}
+
+
+/* =========================================================
+   ROW HOVER
+========================================================= */
+
+.works-recognition-row:hover {
+  background:
+    rgba(255, 255, 255, 0.035);
+}
+
+
+.works-recognition-row:hover
+.works-recognition-project {
+  transform:
+    translateX(6px);
+}
+
+
+.works-recognition-row:hover
+.works-recognition-type {
+  transform:
+    translateX(6px);
+}
+
+
+/* =========================================================
+   FLOATING IMAGE PREVIEW
+========================================================= */
+
+.works-row-preview {
+  position: fixed;
+
+  right: 100px;
+
+  top: 50%;
+
+  width: 500px;
+
+  height: 300px;
+
+  display: flex;
+
+  overflow: hidden;
+
+  background: #111;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.55);
+
+  z-index: 999;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transform:
+    translateY(-50%)
+    translateX(35px)
+    scale(0.94);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.45s cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    );
+}
+
+
+/* =========================================================
+   SHOW PREVIEW
+========================================================= */
+
+.works-recognition-row:hover
+.works-row-preview {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateY(-50%)
+    translateX(0)
+    scale(1);
+}
+
+
+/* =========================================================
+   PREVIEW IMAGE
+========================================================= */
+
+.works-row-preview img {
+  width: 60%;
+
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   PREVIEW INFO
+========================================================= */
+
+.works-preview-info {
+  width: 40%;
+
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-start;
+
+  padding:
+    24px 20px;
+
+  background: #e32525;
+}
+
+
+/* =========================================================
+   PREVIEW NUMBER
+========================================================= */
+
+.works-preview-number {
+  display: block;
+
+  margin-bottom: auto;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 9px;
+
+  line-height: 1;
+
+  letter-spacing: 0.1em;
+
+  color:
+    rgba(255, 255, 255, 0.45);
+}
+
+
+/* =========================================================
+   PREVIEW TITLE
+========================================================= */
+
+.works-preview-info h3 {
+  margin:
+    0 0 10px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 27px;
+
+  font-weight: 500;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.045em;
+
+  color: #fff;
+}
+
+
+/* =========================================================
+   PREVIEW TYPE
+========================================================= */
+
+.works-preview-info p {
+  margin:
+    0 0 25px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 400;
+
+  line-height: 1.5;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================================
+   PREVIEW LINK
+========================================================= */
+
+.works-preview-link {
+  width: max-content;
+
+  padding-bottom: 6px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.65);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 9px;
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: 0.08em;
+
+  color: #fff;
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1440px) {
+
+  .works-project {
+    width: 720px;
+  }
+
+
+  .works-project:nth-child(odd) {
+    margin-left: 10vw;
+  }
+
+
+  .works-project:nth-child(even) {
+    margin-right: 11vw;
+  }
+
+
+  .works-row-preview {
+    right: 120px;
+
+    width: 540px;
+
+    height: 320px;
+  }
+
+}
+
+
+/* =========================================================
    TABLET
 ========================================================= */
 
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
 
   .works-fixed-word {
-    font-size: 32vw;
+    font-size:
+      32vw;
   }
 
 
@@ -544,154 +1055,289 @@
   }
 
 
-  .works-hover-content {
-    padding: 24px;
+  .works-row-preview {
+    right: 50px;
+
+    width: 420px;
+
+    height: 260px;
   }
 
-
-  .works-project-title {
-    font-size: 48px;
-  }
-
-
-  .works-project-hover {
-    width: 70px;
-    height: 70px;
-  }
-
-
-  .works-project-hover span {
-    font-size: 27px;
-  }
 }
 
 
 /* =========================================================
-   MOBILE
+   TABLET / MOBILE
 ========================================================= */
 
 @media (max-width: 768px) {
 
+  /* =======================================================
+     SECTION
+  ======================================================== */
+
   .works-section {
-    min-height: 360vh;
+    min-height: auto;
   }
 
 
-  /* FIXED WORD */
+  /* =======================================================
+     BIG WORD
+  ======================================================== */
 
   .works-fixed-text {
     height: 100vh;
 
-    padding-bottom: 50px;
+    padding-bottom:
+      50px;
   }
 
 
   .works-fixed-word {
-    font-size: 41vw;
+    font-size:
+      41vw;
 
-    letter-spacing: -0.1em;
+    letter-spacing:
+      -0.1em;
 
-    transform: translateX(-2vw);
+    transform:
+      translateX(-2vw);
   }
 
 
-  /* PROJECT SCROLL */
+  /* =======================================================
+     PROJECT SCROLL
+  ======================================================== */
 
   .works-scroll {
-    padding-top: 60vh;
+    margin-top:
+      -100vh;
 
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-top:
+      60vh;
+
+    padding-left:
+      20px;
+
+    padding-right:
+      20px;
   }
 
 
-  /* PROJECT */
+  /* =======================================================
+     PROJECT
+  ======================================================== */
 
   .works-project {
+
     width: 100%;
 
-    margin-bottom: 40vh;
+    margin-bottom:
+      35vh;
   }
 
 
   .works-project:nth-child(odd),
   .works-project:nth-child(even) {
-    margin-left: 0;
 
-    margin-right: 0;
+    margin-left:
+      0;
+
+    margin-right:
+      0;
   }
 
 
-  /* IMAGE */
+  .works-project:nth-child(4) {
+
+    margin-bottom:
+      12vh;
+  }
+
+
+  /* =======================================================
+     IMAGE
+  ======================================================== */
 
   .works-project-image {
-    aspect-ratio: 16 / 11;
 
-    border-radius: 3px;
+    aspect-ratio:
+      16 / 11;
   }
 
 
-  /* HOVER CONTENT */
+  /* =======================================================
+     HOVER CONTENT
+  ======================================================== */
 
   .works-hover-content {
-    padding: 18px 20px;
+
+    padding:
+      18px 20px;
   }
 
 
-  /* TOP */
-
-  .works-hover-top {
-    gap: 15px;
-  }
-
-
-  /* NUMBER */
+  /* =======================================================
+     NUMBER
+  ======================================================== */
 
   .works-project-number {
-    font-size: 8px;
+
+    font-size:
+      8px;
   }
 
 
-  /* TAGS */
+  /* =======================================================
+     TAGS
+  ======================================================== */
 
   .works-project-tags {
-    gap: 8px;
+
+    gap:
+      8px;
   }
 
 
   .works-project-tag {
-    font-size: 7px;
 
-    letter-spacing: 0.06em;
+    font-size:
+      7px;
+
+    letter-spacing:
+      0.06em;
   }
 
 
-  .works-project-tag::before {
-    width: 3px;
-    height: 3px;
-  }
-
-
-  /* TITLE */
+  /* =======================================================
+     TITLE
+  ======================================================== */
 
   .works-project-title {
-    font-size: 34px;
 
-    letter-spacing: -0.045em;
+    font-size:
+      34px;
   }
 
 
-  /* ARROW */
+  /* =======================================================
+     ARROW
+  ======================================================== */
 
   .works-project-hover {
-    width: 60px;
-    height: 60px;
+
+    width:
+      60px;
+
+    height:
+      60px;
   }
 
 
   .works-project-hover span {
-    font-size: 24px;
+
+    font-size:
+      24px;
   }
+
+
+  /* =======================================================
+     MORE WORKS
+  ======================================================== */
+
+  .works-recognition {
+
+    padding:
+      75px 0 100px;
+  }
+
+
+  .works-recognition-container {
+
+    padding:
+      0 20px;
+  }
+
+
+  .works-recognition-heading {
+
+    margin-bottom:
+      50px;
+  }
+
+
+  .works-recognition-heading span {
+
+    font-size:
+      9px;
+  }
+
+
+  /* HEADER */
+
+  .works-recognition-header {
+
+    grid-template-columns:
+      0.8fr
+      1.7fr
+      55px;
+
+    height:
+      45px;
+
+    font-size:
+      8px;
+  }
+
+
+  /* ROW */
+
+  .works-recognition-row {
+
+    grid-template-columns:
+      0.8fr
+      1.7fr
+      55px;
+
+    min-height:
+      70px;
+  }
+
+
+  .works-recognition-project {
+
+    font-size:
+      10px;
+  }
+
+
+  .works-recognition-type {
+
+    font-size:
+      9px;
+
+    line-height:
+      1.4;
+  }
+
+
+  .works-recognition-year {
+
+    font-size:
+      9px;
+  }
+
+
+  /* =======================================================
+     HIDE FLOATING IMAGE ON MOBILE
+  ======================================================== */
+
+  .works-row-preview {
+
+    display:
+      none;
+  }
+
 }
 
 
@@ -702,98 +1348,207 @@
 @media (max-width: 480px) {
 
   .works-scroll {
-    padding-left: 15px;
-    padding-right: 15px;
+
+    padding-left:
+      15px;
+
+    padding-right:
+      15px;
   }
 
 
   .works-project {
-    margin-bottom: 35vh;
+
+    margin-bottom:
+      30vh;
+  }
+
+
+  .works-project:nth-child(4) {
+
+    margin-bottom:
+      10vh;
   }
 
 
   .works-project-image {
-    aspect-ratio: 4 / 3;
+
+    aspect-ratio:
+      4 / 3;
   }
 
 
   .works-hover-content {
-    padding: 14px 15px;
-  }
 
-
-  .works-hover-top {
-    gap: 8px;
-  }
-
-
-  .works-project-number {
-    font-size: 7px;
-  }
-
-
-  .works-project-tags {
-    gap: 6px;
-  }
-
-
-  .works-project-tag {
-    font-size: 6px;
-
-    gap: 5px;
-  }
-
-
-  .works-project-tag::before {
-    width: 3px;
-    height: 3px;
+    padding:
+      14px 15px;
   }
 
 
   .works-project-title {
-    font-size: 27px;
 
-    letter-spacing: -0.04em;
+    font-size:
+      27px;
   }
 
 
   .works-project-hover {
-    width: 54px;
-    height: 54px;
+
+    width:
+      54px;
+
+    height:
+      54px;
   }
 
 
   .works-project-hover span {
-    font-size: 21px;
+
+    font-size:
+      21px;
   }
+
+
+  /* =======================================================
+     MORE WORKS
+  ======================================================== */
+
+  .works-recognition {
+
+    padding:
+      65px 0 80px;
+  }
+
+
+  .works-recognition-container {
+
+    padding:
+      0 15px;
+  }
+
+
+  .works-recognition-heading {
+
+    margin-bottom:
+      40px;
+  }
+
+
+  .works-recognition-header {
+
+    grid-template-columns:
+      0.8fr
+      1.5fr
+      45px;
+
+    font-size:
+      7px;
+  }
+
+
+  .works-recognition-row {
+
+    grid-template-columns:
+      0.8fr
+      1.5fr
+      45px;
+
+    min-height:
+      64px;
+  }
+
+
+  .works-recognition-project {
+
+    font-size:
+      9px;
+  }
+
+
+  .works-recognition-type {
+
+    font-size:
+      8px;
+  }
+
+
+  .works-recognition-year {
+
+    font-size:
+      8px;
+  }
+
 }
 
 
 /* =========================================================
-   EXTRA SMALL MOBILE
+   EXTRA SMALL
 ========================================================= */
 
 @media (max-width: 360px) {
 
   .works-project-title {
-    font-size: 23px;
-  }
 
-
-  .works-project-tag {
-    font-size: 5.5px;
+    font-size:
+      23px;
   }
 
 
   .works-project-hover {
-    width: 48px;
-    height: 48px;
+
+    width:
+      48px;
+
+    height:
+      48px;
   }
 
 
   .works-project-hover span {
-    font-size: 19px;
+
+    font-size:
+      19px;
   }
+
+
+  .works-recognition-header {
+
+    grid-template-columns:
+      0.8fr
+      1.5fr
+      40px;
+  }
+
+
+  .works-recognition-row {
+
+    grid-template-columns:
+      0.8fr
+      1.5fr
+      40px;
+  }
+
+
+  .works-recognition-project {
+
+    font-size:
+      8px;
+  }
+
+
+  .works-recognition-type {
+
+    font-size:
+      7px;
+  }
+
+
+  .works-recognition-year {
+
+    font-size:
+      7px;
+  }
+
 }
 
 
@@ -809,7 +1564,13 @@
   .works-hover-top,
   .works-hover-bottom,
   .works-project-hover,
-  .works-project-hover span {
+  .works-project-hover span,
+  .works-recognition-row,
+  .works-recognition-project,
+  .works-recognition-type,
+  .works-row-preview {
+
     transition: none;
   }
+
 }
