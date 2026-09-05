@@ -1,59 +1,27 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import "./Works.css";
 
-const projects = [
-  {
-    id: "01",
-    title: "UCare",
-    type: "Healthcare Management Platform",
-    tags: ["Healthcare", "App Design"],
-    year: "2026",
-    image: "/images/works(1).png",
-  },
-  {
-    id: "02",
-    title: "TripzyGo",
-    type: "Travel Booking Platform",
-    tags: ["Travel", "Web App"],
-    year: "2026",
-    image: "/images/works(2).png",
-  },
-  {
-    id: "03",
-    title: "Ziora",
-    type: "E-Commerce Web Application",
-    tags: ["E-Commerce", "Frontend"],
-    year: "2026",
-    image: "/images/works(3).png",
-  },
-  {
-    id: "04",
-    title: "ERP",
-    type: "Retail Management System",
-    tags: ["Management", "Dashboard"],
-    year: "2026",
-    image: "/images/works(1).png",
-  },
-  {
-    id: "05",
-    title: "Portfolio",
-    type: "Personal Portfolio Website",
-    tags: ["Portfolio", "Web Design"],
-    year: "2026",
-    image: "/images/works(2).png",
-  },
-  {
-    id: "06",
-    title: "Frontend",
-    type: "Responsive Web Design",
-    tags: ["Frontend", "Web Design"],
-    year: "2025",
-    image: "/images/works(3).png",
-  },
-];
-
 export default function Works() {
+  const [mainProjects, setMainProjects] = useState([]);
+  const [moreProjects, setMoreProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/projects");
+        const data = await res.json();
+        setMainProjects(data.filter(p => p.isFeatured));
+        setMoreProjects(data.filter(p => !p.isFeatured));
+      } catch (error) {
+        console.error("Failed to fetch projects", error);
+      }
+    };
+    
+    fetchProjects();
+  }, []);
+
   return (
     <section className="works-section" id="works">
 
@@ -78,10 +46,10 @@ export default function Works() {
             FIRST 4 PROJECTS
         ==================================================== */}
 
-        {projects.slice(0, 4).map((project) => (
+        {mainProjects.slice(0, 4).map((project) => (
           <article
             className="works-project"
-            key={project.id}
+            key={project._id || project.numberId}
           >
 
             <a
@@ -116,7 +84,7 @@ export default function Works() {
                     {/* NUMBER */}
 
                     <span className="works-project-number">
-                      {project.id}
+                      {project.numberId}
                     </span>
 
 
@@ -219,12 +187,12 @@ export default function Works() {
 
             <div className="works-recognition-list">
 
-              {projects.map((project) => (
+              {moreProjects.map((project) => (
 
                 <a
                   href="#"
                   className="works-recognition-row"
-                  key={project.id}
+                  key={project._id || project.numberId}
                   aria-label={`View ${project.title} project`}
                 >
 
@@ -286,7 +254,7 @@ export default function Works() {
 
                       <span className="works-preview-number">
 
-                        {project.id}
+                        {project.numberId}
 
                       </span>
 

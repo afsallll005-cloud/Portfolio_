@@ -1,12 +1,25 @@
+"use client";
 
+import { useState, useEffect } from "react";
 import "./Projects.css";
 
 export default function Projects() {
-  const projects = [
-    { number: '01', title: 'E-commerce Platform', tech: 'React, Node.js, MongoDB', image: '/images/project1.jpg' },
-    { number: '02', title: 'Portfolio Website', tech: 'Next.js, CSS', image: '/images/project2.jpg' },
-    { number: '03', title: 'Task Management App', tech: 'Vue, Express, PostgreSQL', image: '/images/project3.jpg' }
-  ];
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/projects");
+        const data = await res.json();
+        const featured = data.filter(p => p.isFeatured).slice(0, 3);
+        setProjects(featured.length > 0 ? featured : data.slice(0, 3));
+      } catch (error) {
+        console.error("Failed to fetch projects", error);
+      }
+    };
+    
+    fetchProjects();
+  }, []);
 
   return (
     <section
@@ -47,11 +60,11 @@ export default function Projects() {
 
           <article
             className="project-card"
-            key={project.number}
+            key={project._id || project.numberId}
           >
 
             <div className="project-number">
-              {project.number}
+              {project.numberId}
             </div>
 
 
@@ -82,7 +95,7 @@ export default function Projects() {
                 </h3>
 
                 <p>
-                  {project.tech}
+                  {project.tags && project.tags.length > 0 ? project.tags.join(', ') : project.type}
                 </p>
 
               </div>

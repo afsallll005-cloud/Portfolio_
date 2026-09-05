@@ -1,13 +1,24 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import './Skills.css';
 
 export default function Skills() {
-  const skills = [
-    { name: 'JavaScript', level: 90 },
-    { name: 'React', level: 85 },
-    { name: 'Node.js', level: 80 },
-    { name: 'CSS/HTML', level: 95 },
-    { name: 'MongoDB', level: 75 }
-  ];
+  const [skills, setSkills] = useState([]);
+
+  useEffect(() => {
+    const fetchSkills = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/skills");
+        const data = await res.json();
+        setSkills(data);
+      } catch (error) {
+        console.error("Failed to fetch skills", error);
+      }
+    };
+    
+    fetchSkills();
+  }, []);
 
   return (
     <div
@@ -26,10 +37,11 @@ export default function Skills() {
 
           <div
             className="skill-item"
-            key={skill.name}
+            key={skill._id || skill.name}
           >
 
-            <div className="skill-name">
+            <div className="skill-name" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              {skill.icon && <img src={skill.icon} alt={skill.name} style={{ width: "24px", height: "24px" }} />}
               {skill.name}
             </div>
 
@@ -39,7 +51,7 @@ export default function Skills() {
               <div
                 className="skill-progress"
                 style={{
-                  width: `${skill.level}%`,
+                  width: '90%', // Defaulting to 90% since level isn't in DB yet
                 }}
               />
 
