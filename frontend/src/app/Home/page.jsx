@@ -2,6 +2,7 @@
 
 
 
+import OpeningLoader from "@/components/OpeningLoader/OpeningLoader";
 import Navbar from "@/components/Navbar/Navbar";
 import "./Home.css";
 import Hero from "@/components/Hero/Hero";
@@ -17,7 +18,7 @@ import Services from "@/components/Services/Services";
 export default function Home() {
   return (
     <main className="portfolio">
-
+      <OpeningLoader />
       <Navbar />
       <Hero />
       <IntroTxt/>

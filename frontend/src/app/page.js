@@ -1,8 +1,5 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Home from "./Home/page";
 
-export default function Home() {
-  return (
-    <div></div>
-  );
+export default function RootPage() {
+  return <Home />;
 }
