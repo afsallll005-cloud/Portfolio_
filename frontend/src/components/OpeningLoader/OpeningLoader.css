@@ -1,6 +1,6 @@
 /* =========================================================
    OPENING LOADER
-   High-end Editorial Dark Curtain Loading Experience
+   Minimal • Editorial • Professional
 ========================================================= */
 
 .opening-loader {
@@ -8,289 +8,640 @@
   inset: 0;
   z-index: 999999;
 
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   height: 100dvh;
 
-  background-color: #08080a;
-  color: #f7f5f0;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  padding: clamp(24px, 4.5vw, 56px);
+  box-sizing: border-box;
+  padding: clamp(24px, 4vw, 52px);
+
   overflow: hidden;
   user-select: none;
-  box-sizing: border-box;
 
-  transition: transform 0.95s cubic-bezier(0.85, 0, 0.15, 1),
-              border-bottom-left-radius 0.95s cubic-bezier(0.85, 0, 0.15, 1),
-              border-bottom-right-radius 0.95s cubic-bezier(0.85, 0, 0.15, 1);
-  will-change: transform, border-radius;
+  background: #080808;
+  color: #f5f3ee;
+
+  will-change: transform;
+
+  transition:
+    transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 }
 
-/* Curtain Exit Animation */
+
+/* =========================================================
+   EXIT / CURTAIN ANIMATION
+========================================================= */
+
 .opening-loader.is-exiting {
   transform: translateY(-100%);
-  border-bottom-left-radius: 35vw 120px;
-  border-bottom-right-radius: 35vw 120px;
 }
 
-/* Background Ambient Glow */
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
 .loader-overlay-ambient {
   position: absolute;
   inset: 0;
+
   pointer-events: none;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(212, 175, 55, 0.09) 0%,
-    rgba(255, 255, 255, 0.02) 40%,
-    transparent 75%
-  );
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255, 255, 255, 0.035),
+      transparent 55%
+    );
+
   z-index: 1;
 }
 
-/* Subtle Grid Background Pattern */
+
 .loader-grid-pattern {
   position: absolute;
   inset: 0;
+
   pointer-events: none;
-  background-size: 64px 64px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 80px;
+
+  opacity: 0.35;
+
+  mask-image:
+    radial-gradient(
+      circle at center,
+      black 15%,
+      transparent 75%
+    );
+
+  -webkit-mask-image:
+    radial-gradient(
+      circle at center,
+      black 15%,
+      transparent 75%
+    );
+
   z-index: 1;
-  mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
-  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
 }
 
-/* Header Meta Bar */
+
+/* =========================================================
+   HEADER
+========================================================= */
+
 .loader-header {
   position: relative;
   z-index: 3;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  justify-content: space-between;
+
+  width: 100%;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
 }
+
 
 .loader-brand {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 10px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: clamp(10px, 1.1vw, 12px);
-  letter-spacing: 0.22em;
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(247, 245, 240, 0.75);
+
+  color: rgba(245, 243, 238, 0.7);
 }
+
 
 .loader-status-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
+
+  flex-shrink: 0;
+
   border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 12px #10b981, 0 0 4px #10b981;
-  animation: dotPulse 1.6s ease-in-out infinite;
+
+  background: #f5f3ee;
+
+  animation: statusPulse 1.6s ease-in-out infinite;
 }
 
-@keyframes dotPulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.9;
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.9);
   }
+
   50% {
-    transform: scale(1.35);
-    opacity: 0.5;
+    opacity: 1;
+    transform: scale(1);
   }
 }
+
 
 .loader-tag {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: clamp(10px, 1.1vw, 12px);
-  letter-spacing: 0.22em;
-  color: rgba(247, 245, 240, 0.45);
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 10px;
+
+  letter-spacing: 0.18em;
+
+  color: rgba(245, 243, 238, 0.35);
 }
 
-/* Centerpiece Dynamic Word Cycling */
+
+/* =========================================================
+   CENTER CONTENT
+========================================================= */
+
 .loader-center {
   position: absolute;
+
   top: 50%;
   left: 50%;
+
   transform: translate(-50%, -50%);
-  text-align: center;
-  width: 90%;
-  max-width: 1000px;
-  z-index: 3;
+
+  width: min(92%, 1100px);
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.35s ease, transform 0.35s ease;
+
+  text-align: center;
+
+  z-index: 3;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
 }
 
+
+/* =========================================================
+   WORD FRAME
+========================================================= */
+
 .loader-word-frame {
-  overflow: hidden;
-  height: clamp(56px, 11vw, 120px);
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.loader-word-mask {
-  display: inline-block;
+  width: 100%;
+
+  height: clamp(60px, 12vw, 125px);
+
   overflow: hidden;
 }
+
+
+.loader-word-mask {
+  overflow: hidden;
+
+  max-width: 100%;
+}
+
 
 .loader-word-text {
   display: block;
-  font-family: Arial, Helvetica, sans-serif;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: clamp(38px, 8vw, 96px);
+
   font-weight: 900;
-  font-size: clamp(36px, 7.5vw, 92px);
-  letter-spacing: -0.035em;
-  line-height: 1;
-  color: #f7f5f0;
-  text-transform: uppercase;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.055em;
+
+  color: #f5f3ee;
+
   white-space: nowrap;
-  animation: wordSlideIn 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  text-transform: uppercase;
+
+  animation:
+    wordReveal
+    0.5s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
 }
 
-@keyframes wordSlideIn {
+
+@keyframes wordReveal {
   0% {
-    transform: translateY(110%);
     opacity: 0;
-    filter: blur(8px);
+    transform: translateY(115%);
   }
+
   100% {
-    transform: translateY(0%);
     opacity: 1;
-    filter: blur(0px);
+    transform: translateY(0);
   }
 }
+
+
+/* =========================================================
+   SUB CAPTION
+========================================================= */
 
 .loader-subcaption {
-  margin-top: 14px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: clamp(10px, 1.2vw, 13px);
-  letter-spacing: 0.32em;
+  margin: 18px 0 0;
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: clamp(9px, 1vw, 11px);
+
+  font-weight: 400;
+
+  letter-spacing: 0.28em;
+
+  line-height: 1.5;
+
   text-transform: uppercase;
-  color: rgba(247, 245, 240, 0.45);
+
+  color: rgba(245, 243, 238, 0.35);
 }
 
-/* Footer & Progress Section */
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
 .loader-footer {
   position: relative;
   z-index: 3;
+
   width: 100%;
+
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  transition: opacity 0.35s ease, transform 0.35s ease;
+
+  gap: 18px;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
 }
+
 
 .loader-footer-top {
   display: flex;
-  justify-content: space-between;
+
   align-items: flex-end;
+  justify-content: space-between;
+
+  width: 100%;
 }
 
+
+/* =========================================================
+   STATUS
+========================================================= */
+
 .loader-status-tag {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 10px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: clamp(10px, 1.1vw, 12px);
-  letter-spacing: 0.22em;
+
+  gap: 9px;
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 10px;
+
+  letter-spacing: 0.18em;
+
   text-transform: uppercase;
-  color: rgba(247, 245, 240, 0.65);
+
+  color: rgba(245, 243, 238, 0.5);
 }
+
 
 .loader-status-pulse {
   width: 5px;
   height: 5px;
+
   border-radius: 50%;
-  background: rgba(247, 245, 240, 0.85);
-  animation: pulseDim 1s ease-in-out infinite alternate;
+
+  background: rgba(245, 243, 238, 0.7);
+
+  animation:
+    statusPulseSmall
+    1s
+    ease-in-out
+    infinite alternate;
 }
 
-@keyframes pulseDim {
-  0% { opacity: 0.3; }
-  100% { opacity: 1; }
+
+@keyframes statusPulseSmall {
+  from {
+    opacity: 0.25;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
+
+
+/* =========================================================
+   COUNTER
+========================================================= */
 
 .loader-counter {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-weight: 800;
-  font-size: clamp(40px, 6.5vw, 84px);
-  line-height: 0.85;
-  letter-spacing: -0.05em;
-  color: #f7f5f0;
   display: flex;
   align-items: flex-start;
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: clamp(42px, 6.5vw, 82px);
+
+  font-weight: 700;
+
+  line-height: 0.8;
+
+  letter-spacing: -0.07em;
+
+  color: #f5f3ee;
 }
+
+
+.loader-counter-digits {
+  min-width: 2ch;
+
+  text-align: right;
+}
+
 
 .loader-counter-symbol {
-  font-size: 0.4em;
-  opacity: 0.55;
-  margin-left: 2px;
-  font-weight: 500;
+  margin-left: 4px;
+
+  padding-top: 2px;
+
+  font-size: 0.34em;
+
+  font-weight: 400;
+
+  letter-spacing: 0;
+
+  opacity: 0.45;
 }
 
-/* Progress Track and Glowing Indicator */
+
+/* =========================================================
+   PROGRESS TRACK
+========================================================= */
+
 .loader-track {
-  width: 100%;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  overflow: hidden;
   position: relative;
+
+  width: 100%;
+  height: 2px;
+
+  overflow: hidden;
+
+  background: rgba(245, 243, 238, 0.12);
 }
+
 
 .loader-fill {
-  height: 100%;
-  background: linear-gradient(90deg, rgba(212, 175, 55, 0.7) 0%, #f7f5f0 100%);
-  border-radius: 999px;
   position: relative;
+
+  width: 0;
+  height: 100%;
+
+  background: #f5f3ee;
+
   transition: width 0.08s linear;
 }
 
+
 .loader-fill-glow {
   position: absolute;
-  right: 0;
+
   top: 0;
-  bottom: 0;
-  width: 24px;
+  right: 0;
+
+  width: 35px;
+  height: 100%;
+
   background: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 0 16px 2px rgba(255, 255, 255, 0.95);
+
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 0.7);
 }
 
-/* Exit state fades content out right before curtain lifts */
+
+/* =========================================================
+   EXIT CONTENT ANIMATION
+========================================================= */
+
 .opening-loader.is-exiting .loader-header,
 .opening-loader.is-exiting .loader-center,
 .opening-loader.is-exiting .loader-footer {
   opacity: 0;
-  transform: translateY(-24px);
-  transition: opacity 0.32s ease, transform 0.32s ease;
+
+  transform: translateY(-20px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
-/* Mobile responsive refinements */
-@media (max-width: 600px) {
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
   .opening-loader {
-    padding: 24px 20px;
+    padding: 30px;
   }
 
-  .loader-subcaption {
-    letter-spacing: 0.18em;
+  .loader-word-text {
+    font-size: clamp(34px, 9vw, 78px);
   }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .opening-loader {
+    padding: 22px 20px;
+  }
+
 
   .loader-tag {
     display: none;
   }
 
-  .opening-loader.is-exiting {
-    border-bottom-left-radius: 50vw 80px;
-    border-bottom-right-radius: 50vw 80px;
+
+  .loader-brand {
+    font-size: 9px;
+
+    letter-spacing: 0.16em;
+  }
+
+
+  .loader-status-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+
+  .loader-word-frame {
+    height: 58px;
+  }
+
+
+  .loader-word-text {
+    max-width: 100%;
+
+    font-size: clamp(27px, 9.5vw, 52px);
+
+    letter-spacing: -0.045em;
+  }
+
+
+  .loader-subcaption {
+    margin-top: 13px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.17em;
+
+    white-space: nowrap;
+  }
+
+
+  .loader-footer {
+    gap: 14px;
+  }
+
+
+  .loader-status-tag {
+    font-size: 8px;
+
+    letter-spacing: 0.12em;
+  }
+
+
+  .loader-counter {
+    font-size: 48px;
+  }
+
+
+  .loader-track {
+    height: 2px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 380px) {
+  .opening-loader {
+    padding: 20px 16px;
+  }
+
+
+  .loader-word-text {
+    font-size: 25px;
+  }
+
+
+  .loader-subcaption {
+    font-size: 7px;
+
+    letter-spacing: 0.12em;
+  }
+
+
+  .loader-counter {
+    font-size: 42px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .opening-loader,
+  .loader-header,
+  .loader-center,
+  .loader-footer,
+  .loader-fill {
+    transition: none;
+  }
+
+  .loader-word-text,
+  .loader-status-dot,
+  .loader-status-pulse {
+    animation: none;
   }
 }

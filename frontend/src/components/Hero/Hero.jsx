@@ -3,31 +3,37 @@
 import { useState, useEffect } from "react";
 import "./Hero.css";
 
+const DEFAULT_HERO_DATA = {
+  backgroundText: "DEVELOPER",
+  title: "YO, I'M AFSAL",
+  subtitle: "Fullstack Developer,\nI BUILD DIGITAL\nEXPERIENCES\nTHAT MATTER.",
+  image: "/images/mee(2).png",
+  stat1Value: "98%",
+  stat1Label: "CLIENT SATISFACTION\nRATE",
+  stat2Value: "20+",
+  stat2Label: "PROJECTS\nCOMPLETED",
+};
+
 export default function Hero() {
-  const [heroData, setHeroData] = useState(null);
+  const [heroData, setHeroData] = useState(DEFAULT_HERO_DATA);
 
   useEffect(() => {
     const fetchHero = async () => {
       try {
         const res = await fetch("http://localhost:5000/api/hero");
-        const data = await res.json();
-        setHeroData(data);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.title) {
+            setHeroData(data);
+          }
+        }
       } catch (error) {
-        console.error("Failed to fetch hero content", error);
+        console.warn("Could not fetch dynamic hero content, using defaults:", error.message);
       }
     };
     
     fetchHero();
   }, []);
-
-  if (!heroData) {
-    // Optionally return a loading state or a skeleton here
-    return (
-      <section className="hero" id="home">
-        <div className="hero-background-text">DEVELOPER</div>
-      </section>
-    );
-  }
 
   return (
     <section className="hero" id="home">
