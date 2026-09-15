@@ -97,7 +97,11 @@ export default function Footer() {
           <h1 className="footer-name">AFSAL</h1>
         </div>
 
-        
+        {/* BOTTOM BAR */}
+        <div className="footer-bottom-bar">
+          <span>© 2026 MOHAMMED AFSAL</span>
+          <span>FULLSTACK DEVELOPER &amp; DESIGNER</span>
+        </div>
       </div>
     </section>
   );

@@ -129,13 +129,11 @@ export default function Navbar() {
 
 
       {/* FULLSCREEN MENU */}
-
       <div
         className={`fullscreen-menu ${
           menuOpen ? "show" : ""
         }`}
       >
-
         <button
           className="close-menu"
           onClick={closeMenu}
@@ -144,35 +142,52 @@ export default function Navbar() {
           ×
         </button>
 
+        <div className="fullscreen-menu-content">
+          <nav>
+            <a href="#home" onClick={closeMenu}>
+              HOME
+            </a>
+            <a href="#about" onClick={closeMenu}>
+              ABOUT
+            </a>
+            <a href="#works" onClick={closeMenu}>
+              WORKS
+            </a>
+            <a href="#services" onClick={closeMenu}>
+              SERVICES
+            </a>
+            <a href="#contact" onClick={closeMenu}>
+              CONTACT
+            </a>
+          </nav>
 
-        <nav>
-
-          <a href="#home" onClick={closeMenu}>
-            HOME
-          </a>
-
-          <a href="#about" onClick={closeMenu}>
-            ABOUT
-          </a>
-
-          <a href="#skills" onClick={closeMenu}>
-            SKILLS
-          </a>
-
-          <a href="#projects" onClick={closeMenu}>
-            PROJECTS
-          </a>
-
-          <a href="#experience" onClick={closeMenu}>
-            EXPERIENCE
-          </a>
-
-          <a href="#contact" onClick={closeMenu}>
-            CONTACT
-          </a>
-
-        </nav>
-
+          <div className="menu-socials">
+            <a
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="menu-social-link"
+            >
+              LinkedIn ↗
+            </a>
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="menu-social-link"
+            >
+              GitHub ↗
+            </a>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="menu-social-link"
+            >
+              Instagram ↗
+            </a>
+          </div>
+        </div>
       </div>
     </>
   );
