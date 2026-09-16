@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  height: 100dvh;
+  height: 100vh;
   min-height: 680px;
 
   overflow: hidden;
@@ -81,7 +81,6 @@
 
 /* =========================================================
    PROFILE IMAGE
-   IMAGE SIZE KEPT LARGE
 ========================================================= */
 
 .hero-image {
@@ -99,28 +98,28 @@
 
   opacity: 1;
 
-  /*
-    Bottom fade only.
-    Image size is NOT reduced.
-  */
+  /* Bottom fade */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 87%,
+    rgba(0, 0, 0, 0.98) 91%,
+    rgba(0, 0, 0, 0.82) 94%,
+    rgba(0, 0, 0, 0.55) 97%,
+    rgba(0, 0, 0, 0.2) 99%,
+    transparent 100%
+  );
 
-  -webkit-mask-image: linear-gradient(to bottom,
-      #000 0%,
-      #000 87%,
-      rgba(0, 0, 0, 0.98) 91%,
-      rgba(0, 0, 0, 0.82) 94%,
-      rgba(0, 0, 0, 0.55) 97%,
-      rgba(0, 0, 0, 0.2) 99%,
-      transparent 100%);
-
-  mask-image: linear-gradient(to bottom,
-      #000 0%,
-      #000 87%,
-      rgba(0, 0, 0, 0.98) 91%,
-      rgba(0, 0, 0, 0.82) 94%,
-      rgba(0, 0, 0, 0.55) 97%,
-      rgba(0, 0, 0, 0.2) 99%,
-      transparent 100%);
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 87%,
+    rgba(0, 0, 0, 0.98) 91%,
+    rgba(0, 0, 0, 0.82) 94%,
+    rgba(0, 0, 0, 0.55) 97%,
+    rgba(0, 0, 0, 0.2) 99%,
+    transparent 100%
+  );
 
   animation: heroImageIn 0.9s ease both;
 }
@@ -150,10 +149,11 @@
 
 .hero-intro {
   display: flex;
-  /* align-items: stretch; */
+
   width: 280px;
+
   text-align: left;
-  /* margin-bottom: 32px; */
+
   margin-top: 20px;
 }
 
@@ -205,7 +205,9 @@
 }
 
 
-/* Small dot */
+/* =========================================================
+   SMALL DOT
+========================================================= */
 
 .intro-small::before {
   content: "";
@@ -502,12 +504,6 @@
 
 
 /* =========================================================
-   NO BOTTOM BORDER
-   Removed hero::after completely
-========================================================= */
-
-
-/* =========================================================
    ANIMATIONS
 ========================================================= */
 
@@ -552,6 +548,7 @@
 
 /* =========================================================
    LARGE DESKTOP
+   1600px+
 ========================================================= */
 
 @media (min-width: 1600px) {
@@ -597,6 +594,7 @@
 
 /* =========================================================
    MEDIUM DESKTOP
+   1200px - 1599px
 ========================================================= */
 
 @media (min-width: 1200px) and (max-width: 1599px) {
@@ -666,138 +664,426 @@
 
 /* =========================================================
    TABLET
+   768px - 1023px
 ========================================================= */
 
-@media (max-width: 1100px) {
+@media (min-width: 768px) and (max-width: 1023px) {
 
   .hero {
-    min-height: 720px;
+    min-height: 650px;
   }
 
+
+  /* BACKGROUND TEXT */
 
   .hero-background-text {
-    top: 155px;
+    top: 90px;
 
-    font-size: 17vw;
+    left: 50%;
 
-    letter-spacing: -0.07em;
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(90px, 14vw, 145px);
+
+    line-height: 0.82;
+
+    letter-spacing: -0.075em;
+
+    text-align: center;
+
+    white-space: nowrap;
   }
 
 
+  /* IMAGE */
+
   .hero-image-wrapper {
-    width: 500px;
-    height: 650px;
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 100%;
+    height: 480px;
+
+    transform: translate(-50%, -45%);
   }
 
 
   .hero-image {
-    width: 1100px;
-    height: 770px;
+    width: min(620px, 85vw);
+
+    max-width: 620px;
+
+    height: auto;
   }
 
+
+  /* LEFT */
 
   .hero-left {
-    left: 30px;
-    bottom: 50px;
+    left: 4%;
+    bottom: 6%;
 
-    width: 300px;
-  }
-
-
-  .hero-right {
-    right: 30px;
-    bottom: 50px;
-
-    width: 155px;
-
-    gap: 30px;
+    width: 280px;
   }
 
 
   .hero-intro h2 {
-    font-size: 24px;
+    font-size: clamp(28px, 3.5vw, 36px);
+
+    line-height: 0.98;
   }
 
 
-  .intro-small {
-    font-size: 9px;
+  /* RIGHT */
+
+  .hero-right {
+    right: 4%;
+    bottom: 6%;
+
+    width: 145px;
+
+    gap: 38px;
   }
 
 
-  .view-work {
-    width: 220px;
-    height: 55px;
+  .satisfaction strong,
+  .projects-count strong {
+    font-size: 45px;
+  }
 
-    font-size: 11px;
+
+  .satisfaction p,
+  .projects-count p {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE LARGE
+   401px - 767px
+========================================================= */
+
+@media (min-width: 401px) and (max-width: 767px) {
+
+  .hero {
+    min-height: 100dvh;
+
+    height: auto;
+
+    overflow: hidden;
+  }
+
+
+  /* =======================================================
+     BACKGROUND DEVELOPER TEXT
+  ======================================================= */
+
+  .hero-background-text {
+    top: 84px;
+
+    left: 50%;
+
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(65px, 13vw, 105px);
+
+    line-height: 0.82;
+
+    letter-spacing: -0.075em;
+
+    text-align: center;
+
+    white-space: nowrap;
+  }
+
+
+  /* =======================================================
+     IMAGE
+     
+     IMPORTANT:
+     Image is now NORMAL FLOW content.
+     Text comes directly after it.
+  ======================================================= */
+
+  .hero-image-wrapper {
+    position: relative;
+
+    top: auto;
+    left: auto;
+    bottom: auto;
+
+    width: 100%;
+
+    height: auto;
+
+    margin-top: 115px;
+
+    transform: none;
+
+    display: block;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+  }
+
+
+  .hero-image {
+    display: block;
+
+    width: 100%;
+
+    max-width: 520px;
+
+    height: auto;
+
+    margin: 0 auto;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    /*
+      Mobile image fade
+    */
+
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 82%,
+      rgba(0, 0, 0, 0.9) 88%,
+      rgba(0, 0, 0, 0.7) 92%,
+      rgba(0, 0, 0, 0.4) 96%,
+      transparent 100%
+    );
+
+    mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 82%,
+      rgba(0, 0, 0, 0.9) 88%,
+      rgba(0, 0, 0, 0.7) 92%,
+      rgba(0, 0, 0, 0.4) 96%,
+      transparent 100%
+    );
+  }
+
+
+  /* =======================================================
+     LEFT CONTENT
+     
+     Text naturally follows image.
+  ======================================================= */
+
+  .hero-left {
+    position: relative;
+
+    left: auto;
+    bottom: auto;
+
+    width: 100%;
+
+    padding: 0 24px;
+
+    margin-top: 8px;
+
+    box-sizing: border-box;
+  }
+
+
+  .hero-intro {
+    width: 100%;
+
+    margin-top: 0;
+
+    display: block;
+  }
+
+
+  .hero-intro h2 {
+    width: 100%;
+
+    max-width: 100%;
+
+    margin: 0;
+
+    font-size: clamp(28px, 8vw, 38px);
+
+    line-height: 0.96;
+
+    letter-spacing: -0.055em;
+  }
+
+
+  /* =======================================================
+     RIGHT STATS
+  ======================================================= */
+
+  .hero-right {
+    position: relative;
+
+    right: auto;
+    bottom: auto;
+
+    width: 100%;
+
+    padding: 0 24px;
+
+    margin-top: 40px;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    box-sizing: border-box;
+  }
+
+
+  .satisfaction,
+  .projects-count {
+    width: 45%;
   }
 
 
   .projects-count {
-    width: 155px;
-    height: 125px;
+    height: auto;
 
-    padding: 18px;
+    min-height: 150px;
+
+    padding: 20px;
   }
 
 
+  .satisfaction strong,
   .projects-count strong {
-    font-size: 35px;
+    font-size: clamp(42px, 12vw, 56px);
   }
 
 
-  .satisfaction strong {
-    font-size: 36px;
+  .satisfaction p,
+  .projects-count p {
+    font-size: 9px;
+
+    margin-top: 9px;
   }
 }
 
 
 /* =========================================================
    MOBILE
+   341px - 400px
 ========================================================= */
 
-@media (max-width: 700px) {
+@media (min-width: 341px) and (max-width: 400px) {
 
   .hero {
-    height: 780px;
-    min-height: 780px;
-  }
+    min-height: 680px;
 
+    height: auto;
 
-  /* Background text */
-
-  .hero-background-text {
-    top: 155px;
-
-    width: max-content;
-
-    font-size: 27vw;
-
-    letter-spacing: -0.065em;
-
-    color: #141414;
+    overflow: hidden;
   }
 
 
   /* =======================================================
-     PROFILE IMAGE
-     KEEP LARGE
+     BACKGROUND TEXT
+  ======================================================= */
+
+  .hero-background-text {
+    top: 80px;
+
+    left: 50%;
+
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(58px, 13.2vw, 82px);
+
+    line-height: 0.82;
+
+    letter-spacing: -0.07em;
+
+    text-align: center;
+
+    white-space: nowrap;
+  }
+
+
+  /* =======================================================
+     IMAGE
+     
+     Natural height.
+     No fixed 320px container.
   ======================================================= */
 
   .hero-image-wrapper {
-    width: 100%;
-    height: 570px;
+    position: relative;
 
-    overflow: visible;
+    top: auto;
+    left: auto;
+    bottom: auto;
+
+    width: 100%;
+
+    height: auto;
+
+    margin-top: 125px;
+
+    transform: none;
+
+    display: block;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
   }
 
 
   .hero-image {
-    width: 1100px;
-    height: 770px;
+    display: block;
+
+    width: 100%;
+
+    max-width: 430px;
+
+    height: auto;
+
+    margin: 0 auto;
 
     object-fit: contain;
 
-    object-position: center bottom;
+    object-position: center;
+
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 82%,
+      rgba(0, 0, 0, 0.9) 89%,
+      rgba(0, 0, 0, 0.65) 94%,
+      rgba(0, 0, 0, 0.3) 98%,
+      transparent 100%
+    );
+
+    mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 82%,
+      rgba(0, 0, 0, 0.9) 89%,
+      rgba(0, 0, 0, 0.65) 94%,
+      rgba(0, 0, 0, 0.3) 98%,
+      transparent 100%
+    );
   }
 
 
@@ -806,282 +1092,333 @@
   ======================================================= */
 
   .hero-left {
-    left: 18px;
-    bottom: 30px;
+    position: relative;
 
-    width: 210px;
+    left: auto;
+    bottom: auto;
+
+    width: 100%;
+
+    padding: 0 20px;
+
+    margin-top: 8px;
+
+    box-sizing: border-box;
   }
 
 
   .hero-intro {
-    margin-bottom: 20px;
-  }
+    width: 100%;
 
+    margin-top: 0;
 
-  .intro-line {
-    width: 2px;
-
-    margin-right: 11px;
-  }
-
-
-  .intro-small {
-    margin-bottom: 8px;
-
-    font-size: 7px;
-
-    letter-spacing: 0.13em;
-  }
-
-
-  .intro-small::before {
-    width: 4px;
-    height: 4px;
-
-    margin-right: 6px;
+    display: block;
   }
 
 
   .hero-intro h2 {
-    font-size: 15px;
+    width: 100%;
 
-    line-height: 1.12;
+    max-width: 100%;
 
-    letter-spacing: -0.04em;
+    margin: 0;
+
+    font-size: 23px;
+
+    line-height: 0.96;
+
+    letter-spacing: -0.055em;
   }
 
 
   /* =======================================================
-     BUTTON
-  ======================================================= */
-
-  .view-work {
-    width: 155px;
-    height: 44px;
-
-    padding: 0 13px;
-
-    font-size: 8px;
-  }
-
-
-  .arrow {
-    font-size: 18px;
-  }
-
-
-  /* =======================================================
-     RIGHT SIDE
+     RIGHT STATS
   ======================================================= */
 
   .hero-right {
-    right: 15px;
-    bottom: 30px;
+    position: relative;
 
-    width: 105px;
+    right: auto;
+    bottom: auto;
 
-    gap: 18px;
+    width: 100%;
+
+    padding: 0 20px;
+
+    margin-top: 35px;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    box-sizing: border-box;
   }
 
 
-  .satisfaction {
-    padding-left: 8px;
-
-    border-left-width: 1px;
-  }
-
-
-  .satisfaction strong {
-    margin-bottom: 6px;
-
-    font-size: 25px;
-  }
-
-
-  .satisfaction strong span {
-    font-size: 14px;
-  }
-
-
-  .satisfaction p {
-    font-size: 7px;
+  .satisfaction,
+  .projects-count {
+    width: 48%;
   }
 
 
   .projects-count {
-    width: 105px;
-    height: 82px;
+    height: auto;
 
-    padding: 11px;
+    min-height: 135px;
+
+    padding: 20px;
+
+
+     position: relative;
+    /* top: 20px; */
+    bottom: 80px;
+    left: 0px;
   }
 
 
+  .satisfaction strong,
   .projects-count strong {
-    margin-bottom: 5px;
-
-    font-size: 23px;
+    font-size: 43px;
   }
 
 
+  .satisfaction p,
   .projects-count p {
-    font-size: 7px;
+    font-size: 8px;
+
+    margin-top: 8px;
   }
 }
 
 
 /* =========================================================
    SMALL MOBILE
+   340px AND BELOW
 ========================================================= */
 
-@media (max-width: 420px) {
+@media (max-width: 340px) {
 
   .hero {
-    height: 740px;
-    min-height: 740px;
+    min-height: 650px;
+
+    height: auto;
+
+    overflow: hidden;
   }
 
+
+  /* =======================================================
+     BACKGROUND TEXT
+  ======================================================= */
 
   .hero-background-text {
-    top: 150px;
+    top: 52px;
 
-    font-size: 27vw;
+    left: 50%;
+
+    width: 100%;
+    max-width: 100%;
+
+    font-size: clamp(50px, 13vw, 72px);
+
+    line-height: 0.82;
+
+    letter-spacing: -0.07em;
+
+    text-align: center;
+
+    white-space: nowrap;
   }
 
 
+  /* =======================================================
+     IMAGE
+  ======================================================= */
+
   .hero-image-wrapper {
+    position: relative;
+
+    top: auto;
+    left: auto;
+    bottom: auto;
+
     width: 100%;
-    height: 530px;
+
+    height: auto;
+
+    margin-top: 90px;
+
+    transform: none;
+
+    display: block;
+
+    overflow: hidden;
+
+    box-sizing: border-box;
   }
 
 
   .hero-image {
-    width: 1100px;
-    height: 770px;
+    display: block;
+
+    width: 100%;
+
+    max-width: 350px;
+
+    height: auto;
+
+    margin: 0 auto;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 82%,
+      rgba(0, 0, 0, 0.85) 90%,
+      rgba(0, 0, 0, 0.55) 95%,
+      rgba(0, 0, 0, 0.25) 98%,
+      transparent 100%
+    );
+
+    mask-image: linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 82%,
+      rgba(0, 0, 0, 0.85) 90%,
+      rgba(0, 0, 0, 0.55) 95%,
+      rgba(0, 0, 0, 0.25) 98%,
+      transparent 100%
+    );
   }
 
+
+  /* =======================================================
+     LEFT CONTENT
+  ======================================================= */
 
   .hero-left {
-    left: 14px;
-    bottom: 25px;
+    position: relative;
 
-    width: 175px;
+    left: auto;
+    bottom: auto;
+
+    width: 100%;
+
+    padding: 0 18px;
+
+    margin-top: 8px;
+
+    box-sizing: border-box;
   }
 
 
-  .hero-right {
-    right: 10px;
-    bottom: 25px;
+  .hero-intro {
+    width: 100%;
+
+    margin-top: 0;
+
+    display: block;
   }
 
 
   .hero-intro h2 {
-    font-size: 12px;
+    width: 100%;
 
-    line-height: 1.15;
+    max-width: 100%;
+
+    margin: 0;
+
+    font-size: 25px;
+
+    line-height: 0.96;
+
+    letter-spacing: -0.05em;
   }
 
 
-  .intro-small {
-    font-size: 6px;
-    letter-spacing: 0.11em;
+  /* =======================================================
+     STATS
+  ======================================================= */
+
+  .hero-right {
+    position: relative;
+
+    right: auto;
+    bottom: auto;
+
+    width: 100%;
+
+    padding: 0 18px;
+
+    margin-top: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+    box-sizing: border-box;
   }
 
 
-  .view-work {
-    width: 135px;
-    height: 40px;
+  .satisfaction,
+  .projects-count {
+    width: 100%;
   }
 
 
   .projects-count {
-    width: 95px;
-    height: 72px;
+    height: auto;
+   
 
-    padding: 9px;
+    min-height: 135px;
   }
 
 
+  .satisfaction strong,
   .projects-count strong {
-    font-size: 20px;
+    font-size: 40px;
   }
 
 
+  .satisfaction p,
   .projects-count p {
-    font-size: 6px;
-  }
+    font-size: 8px;
 
-
-  .satisfaction strong {
-    font-size: 22px;
+    margin-top: 7px;
   }
 }
 
 
 /* =========================================================
-   VERY SMALL DEVICES
+   VERY SMALL HEIGHT SCREENS
 ========================================================= */
 
-@media (max-width: 360px) {
-
-  .hero {
-    height: 700px;
-    min-height: 700px;
-  }
-
+@media (max-height: 700px) and (min-width: 768px) {
 
   .hero-background-text {
-    top: 140px;
-
-    font-size: 26vw;
+    top: 70px;
   }
 
 
   .hero-image-wrapper {
-    height: 490px;
+    height: 500px;
   }
 
 
-  .hero-image {
-    width: 1100px;
-    height: 770px;
-  }
-
-
-  .hero-left {
-    left: 12px;
-    bottom: 20px;
-
-    width: 160px;
-  }
-
-
+  .hero-left,
   .hero-right {
-    right: 8px;
-    bottom: 20px;
-  }
-
-
-  .hero-intro h2 {
-    font-size: 10px;
-  }
-
-
-  .view-work {
-    width: 125px;
-    height: 38px;
-
-    font-size: 7px;
-  }
-
-
-  .projects-count {
-    width: 88px;
-    height: 68px;
-  }
-
-
-  .projects-count strong {
-    font-size: 18px;
+    bottom: 4%;
   }
 }
 
@@ -1092,16 +1429,12 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-  .hero-image,
-  .hero-left,
-  .hero-right {
-    animation: none;
-  }
+  .hero,
+  .hero * {
+    scroll-behavior: auto;
 
-
-  .view-work,
-  .arrow,
-  .projects-count {
-    transition: none;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -89,18 +89,19 @@
 
 @media (max-width: 480px) {
   .intro-txt {
-    padding: 45px 15px;
+    padding: 1px 15px;
+    margin-top: -5px;
   }
 
   .intro-txt-title {
-    font-size: 13px;
+    font-size: 16px;
     line-height: 1.5;
   }
 
   .intro-txt-button {
-    min-width: 150px;
-    height: 42px;
-    font-size: 9px;
+    min-width: 170px;
+    height: 45px;
+    font-size: 14px;
     gap: 8px;
   }
 
